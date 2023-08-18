@@ -1,11 +1,11 @@
 {
   "name": "personal-site",
   "version": "4.0.0",
-  "homepage": "https://ddabed.github.io/",
+  "homepage": "https://ddabed.github.io/public/index.html",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ddabed/ddabed.github.io"
+    "url": "https://github.com/ddabed/ddabed.github.io.git"
   },
   "engines": {
     "node": ">=14.x"
