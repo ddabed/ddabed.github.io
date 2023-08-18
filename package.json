@@ -3,6 +3,7 @@
   "version": "4.0.0",
   "homepage": "https://www.github.com/ddabed/ddabed.github.com/public/index.html",
   "license": "MIT",
+  "main": "/public/index.html",
   "repository": {
     "type": "git",
     "url": "https://github.com/ddabed/ddabed.github.io.git"
