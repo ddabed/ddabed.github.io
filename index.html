@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Academic Personal Page</title>
+    <title>Diego Dabed - PhD Candidate in Economics</title>
     <style>
         * {
             margin: 0;
@@ -11,229 +11,503 @@
             box-sizing: border-box;
         }
         
+        :root {
+            --color-primary: #2c3e50;
+            --color-secondary: #34495e;
+            --color-accent: #3498db;
+            --color-text: #333;
+            --color-text-light: #666;
+            --color-bg: #fff;
+            --color-bg-alt: #f8f9fa;
+            --color-border: #e0e0e0;
+            --font-serif: 'Georgia', 'Times New Roman', serif;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
         body {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
+            font-family: var(--font-serif);
+            line-height: 1.7;
+            color: var(--color-text);
+            background-color: var(--color-bg);
         }
         
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        
-        header {
-            border-bottom: 2px solid #2c3e50;
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-        }
-        
-        h1 {
-            font-size: 2.5em;
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-        
-        .title {
-            font-size: 1.2em;
-            color: #555;
-            font-style: italic;
-            margin-bottom: 10px;
-        }
-        
-        .contact-info {
-            font-size: 0.95em;
-            color: #666;
-            margin-top: 15px;
-        }
-        
-        .contact-info a {
-            color: #2c3e50;
+        a {
+            color: var(--color-accent);
             text-decoration: none;
-            border-bottom: 1px solid #2c3e50;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
         }
         
-        .contact-info a:hover {
-            color: #3498db;
-            border-bottom-color: #3498db;
+        a:hover {
+            border-bottom-color: var(--color-accent);
+        }
+        
+        /* Layout */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .main-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 60px;
+            padding: 40px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 40px;
+            height: fit-content;
+        }
+        
+        .profile-photo {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 4px;
+            margin-bottom: 24px;
+            filter: grayscale(10%);
+        }
+        
+        .sidebar-name {
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            margin-bottom: 8px;
+            font-weight: normal;
+        }
+        
+        .sidebar-title {
+            font-size: 1rem;
+            color: var(--color-text-light);
+            margin-bottom: 4px;
+            font-style: italic;
+        }
+        
+        .sidebar-institution {
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+            margin-bottom: 20px;
+        }
+        
+        .sidebar-contact {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            padding-top: 16px;
+            border-top: 1px solid var(--color-border);
+        }
+        
+        .sidebar-contact a {
+            color: var(--color-text);
+        }
+        
+        .sidebar-nav {
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1px solid var(--color-border);
+        }
+        
+        .sidebar-nav a {
+            display: block;
+            padding: 6px 0;
+            color: var(--color-text-light);
+            font-size: 0.9rem;
+            border-bottom: none;
+        }
+        
+        .sidebar-nav a:hover {
+            color: var(--color-accent);
+        }
+        
+        /* Main Content */
+        .main-content {
+            min-width: 0;
         }
         
         section {
-            margin-bottom: 35px;
+            margin-bottom: 48px;
         }
         
         h2 {
-            font-size: 1.8em;
-            color: #2c3e50;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 10px;
+            font-size: 1.4rem;
+            color: var(--color-primary);
+            font-weight: normal;
             margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--color-primary);
         }
         
         h3 {
-            font-size: 1.3em;
-            color: #34495e;
+            font-size: 1.15rem;
+            color: var(--color-secondary);
+            font-weight: normal;
             margin-bottom: 8px;
-            margin-top: 15px;
         }
         
-        .degree, .publication, .experience-item {
+        p {
+            margin-bottom: 16px;
+        }
+        
+        /* About Section */
+        .research-fields {
+            margin-top: 16px;
+            font-size: 0.95rem;
+        }
+        
+        .research-fields strong {
+            color: var(--color-secondary);
+        }
+        
+        /* JMP Section - Prominent */
+        .jmp-section {
+            background-color: var(--color-bg-alt);
+            padding: 32px;
+            border-left: 4px solid var(--color-accent);
+            margin-bottom: 48px;
+        }
+        
+        .jmp-section h2 {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 8px;
+            color: var(--color-accent);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .jmp-title {
+            font-size: 1.4rem;
+            color: var(--color-primary);
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+        
+        .jmp-abstract {
+            font-size: 0.95rem;
+            color: var(--color-text);
+            line-height: 1.8;
             margin-bottom: 20px;
         }
         
-        .institution, .venue {
-            color: #555;
+        .jmp-keywords {
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            background-color: var(--color-primary);
+            color: white;
+            border: none;
+            border-radius: 3px;
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        
+        .btn:hover {
+            background-color: var(--color-secondary);
+            border-bottom: none;
+            color: white;
+        }
+        
+        /* Research Papers */
+        .paper {
+            margin-bottom: 36px;
+            padding-bottom: 36px;
+            border-bottom: 1px solid var(--color-border);
+        }
+        
+        .paper:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        .paper-title {
+            font-size: 1.1rem;
+            color: var(--color-primary);
+            margin-bottom: 6px;
+        }
+        
+        .paper-meta {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            margin-bottom: 12px;
             font-style: italic;
         }
         
-        .date {
-            color: #777;
-            font-size: 0.9em;
+        .paper-status {
+            display: inline-block;
+            padding: 2px 10px;
+            background-color: var(--color-bg-alt);
+            border-radius: 3px;
+            font-size: 0.8rem;
+            font-style: normal;
+            color: var(--color-secondary);
+            margin-left: 8px;
         }
         
-        .publication-title {
-            font-weight: bold;
-            margin-bottom: 5px;
+        .paper-status.published {
+            background-color: #e8f5e9;
+            color: #2e7d32;
         }
         
-        .authors {
-            color: #666;
-            font-size: 0.95em;
-            margin-bottom: 5px;
+        .paper-abstract {
+            font-size: 0.92rem;
+            color: var(--color-text);
+            line-height: 1.75;
         }
         
-        ul {
-            margin-left: 20px;
-            margin-top: 10px;
+        .paper-link {
+            margin-top: 12px;
+            font-size: 0.9rem;
         }
         
-        li {
+        /* Teaching Section */
+        .teaching-narrative {
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+        
+        .teaching-highlight {
+            background-color: var(--color-bg-alt);
+            padding: 16px 20px;
+            margin-top: 16px;
+            border-radius: 3px;
+            font-size: 0.9rem;
+        }
+        
+        .teaching-highlight strong {
+            color: var(--color-secondary);
+        }
+        
+        /* CV Section */
+        .cv-section {
+            background-color: var(--color-bg-alt);
+            padding: 24px;
+            border-radius: 3px;
+        }
+        
+        .cv-education {
+            margin-bottom: 20px;
+        }
+        
+        .cv-education-item {
             margin-bottom: 8px;
+            font-size: 0.95rem;
         }
         
+        .cv-education-item .year {
+            color: var(--color-text-light);
+            font-size: 0.85rem;
+        }
+        
+        /* Footer */
         footer {
-            margin-top: 50px;
-            padding-top: 20px;
-            border-top: 1px solid #ddd;
             text-align: center;
-            color: #888;
-            font-size: 0.9em;
+            padding: 40px 20px;
+            color: var(--color-text-light);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--color-border);
+            margin-top: 40px;
         }
         
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px 15px;
+        /* Responsive */
+        @media (max-width: 800px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
             
-            h1 {
-                font-size: 2em;
+            .sidebar {
+                position: static;
+                text-align: center;
+            }
+            
+            .profile-photo {
+                max-width: 200px;
+                margin: 0 auto 24px;
+            }
+            
+            .sidebar-nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px 20px;
+            }
+            
+            .jmp-section {
+                padding: 24px 20px;
             }
             
             h2 {
-                font-size: 1.5em;
+                font-size: 1.25rem;
+            }
+            
+            .jmp-title {
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 500px) {
+            .main-layout {
+                padding: 20px 16px;
+            }
+            
+            .jmp-section {
+                padding: 20px 16px;
+                margin-left: -16px;
+                margin-right: -16px;
+                border-radius: 0;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Your Name</h1>
-            <div class="title">Assistant Professor, Department of Computer Science</div>
-            <div class="title">University Name</div>
-            <div class="contact-info">
-                Email: <a href="mailto:your.email@university.edu">your.email@university.edu</a> | 
-                Office: Building 123, Room 456 | 
-                <a href="https://scholar.google.com">Google Scholar</a> | 
-                <a href="https://github.com/yourusername">GitHub</a>
+    <div class="main-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <img src="files/No background.png" alt="Diego Dabed" class="profile-photo">
+            <h1 class="sidebar-name">Diego Dabed</h1>
+            <div class="sidebar-title">PhD Candidate in Economics</div>
+            <div class="sidebar-institution">Utrecht University</div>
+            <div class="sidebar-contact">
+                <a href="mailto:ddabed@gmail.com">ddabed@gmail.com</a>
             </div>
-        </header>
+            <nav class="sidebar-nav">
+                <a href="#about">About</a>
+                <a href="#jmp">Job Market Paper</a>
+                <a href="#research">Research</a>
+                <a href="#teaching">Teaching</a>
+                <a href="#cv">CV</a>
+            </nav>
+        </aside>
         
-        <section id="about">
-            <h2>About</h2>
-            <p>
-                Welcome to my academic homepage. I am an Assistant Professor in the Department of Computer Science 
-                at University Name. My research interests include machine learning, artificial intelligence, and 
-                data science. I am particularly interested in developing novel algorithms for complex problems 
-                and their applications in real-world scenarios.
-            </p>
-            <p style="margin-top: 15px;">
-                Prior to joining University Name, I completed my Ph.D. at Previous University, where I worked on 
-                computational methods for data analysis. I am always looking for motivated students interested in 
-                research collaborations.
-            </p>
-        </section>
-        
-        <section id="education">
-            <h2>Education</h2>
-            <div class="degree">
-                <h3>Ph.D. in Computer Science</h3>
-                <div class="institution">Previous University</div>
-                <div class="date">2018 - 2022</div>
-                <p>Dissertation: "Title of Your Dissertation"</p>
-            </div>
-            <div class="degree">
-                <h3>M.S. in Computer Science</h3>
-                <div class="institution">Another University</div>
-                <div class="date">2016 - 2018</div>
-            </div>
-            <div class="degree">
-                <h3>B.S. in Computer Science</h3>
-                <div class="institution">Undergraduate University</div>
-                <div class="date">2012 - 2016</div>
-            </div>
-        </section>
-        
-        <section id="publications">
-            <h2>Selected Publications</h2>
-            <div class="publication">
-                <div class="publication-title">A Novel Approach to Machine Learning Problems</div>
-                <div class="authors">Your Name, Collaborator A, Collaborator B</div>
-                <div class="venue">Conference on Important Research (CIR), 2023</div>
-            </div>
-            <div class="publication">
-                <div class="publication-title">Innovative Methods for Data Analysis</div>
-                <div class="authors">Collaborator C, Your Name, Collaborator D</div>
-                <div class="venue">Journal of Advanced Computing, Vol. 45, 2022</div>
-            </div>
-            <div class="publication">
-                <div class="publication-title">Theoretical Foundations of Algorithm Design</div>
-                <div class="authors">Your Name, Advisor Name</div>
-                <div class="venue">International Symposium on Algorithms (ISA), 2021</div>
-            </div>
-        </section>
-        
-        <section id="teaching">
-            <h2>Teaching</h2>
-            <div class="experience-item">
-                <h3>CS 101: Introduction to Computer Science</h3>
-                <div class="date">Fall 2023, Spring 2024</div>
-                <p>Undergraduate course covering fundamental concepts in computer science and programming.</p>
-            </div>
-            <div class="experience-item">
-                <h3>CS 502: Advanced Machine Learning</h3>
-                <div class="date">Spring 2024</div>
-                <p>Graduate course exploring advanced topics in machine learning and deep learning.</p>
-            </div>
-        </section>
-        
-        <section id="service">
-            <h2>Professional Service</h2>
-            <ul>
-                <li>Program Committee Member, Conference on Important Research, 2023-2024</li>
-                <li>Reviewer, Journal of Advanced Computing</li>
-                <li>Reviewer, International Symposium on Algorithms</li>
-                <li>Faculty Advisor, Computer Science Graduate Student Association</li>
-            </ul>
-        </section>
-        
-        <footer>
-            <p>&copy; 2024 Your Name. Last updated: December 2024.</p>
-        </footer>
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- About Section -->
+            <section id="about">
+                <h2>About</h2>
+                <p>
+                    I am a PhD candidate in Economics at Utrecht University, expecting to complete my degree in Summer 2025. My research focuses on understanding labor markets, with particular attention to how job amenities, firm organization, and technological change shape worker outcomes.
+                </p>
+                <p>
+                    I combine administrative employer-employee data with surveys and modern econometric methods to study questions about worker mobility, wage determination, and labor market inequality.
+                </p>
+                <div class="research-fields">
+                    <strong>Primary Field:</strong> Labor Economics<br>
+                    <strong>Secondary Fields:</strong> Applied Machine Learning, Microeconometrics
+                </div>
+            </section>
+            
+            <!-- Job Market Paper - Prominent -->
+            <section id="jmp" class="jmp-section">
+                <h2>Job Market Paper</h2>
+                <div class="jmp-title">Why Do Workers Leave? The Role of Job Amenities</div>
+                <p class="jmp-abstract">
+                    Why do workers separate from their jobs? I study the role of a wide range of amenities in the decision of workers to separate from their firm. Using administrative data and a survey on amenities, I match similar workers and measure their separation response to differences in amenities. I show that amenities are quantitatively important: when additionally considering firm-level amenity differences, workers are up to 3.7 times less responsive to wages. I find that quit responses vary depending on the amenity: for example, whether a worker's supervisor listens or stimulates them to learn has a strong effect, while being able to work remotely and fixing one's own schedule is less important. These findings have important implications for market structure: if workers are not as reactive to wages as previously thought, firms could be playing a bigger role when setting wages. When decomposing amenities to understand if the differences come from between firms or within firms, I find most of the variation arise within firms, but there is a considerable firm-level component.
+                </p>
+                <p class="jmp-keywords">
+                    <strong>Keywords:</strong> Job amenities, Separation elasticities, Matched employer-employee data<br>
+                    <strong>JEL:</strong> J2, J31, J32, J42, M50
+                </p>
+                <a href="files/jmp_amenities_dd.pdf" class="btn" target="_blank">Download Paper</a>
+            </section>
+            
+            <!-- Research Section -->
+            <section id="research">
+                <h2>Research</h2>
+                
+                <div class="paper">
+                    <h3 class="paper-title">Equalizing the Effects of Automation? The Role of Task Overlap for Job Finding</h3>
+                    <div class="paper-meta">
+                        Joint with <a href="https://sites.google.com/view/sabrinagenz" target="_blank">Sabrina Genz</a> and <a href="https://sites.google.com/view/emilie-rademakers" target="_blank">Emilie Rademakers</a>
+                        <span class="paper-status published">Published in Labour Economics</span>
+                    </div>
+                    <p class="paper-abstract">
+                        This paper investigates whether task overlap can equalize the effects of automation for unemployed job seekers displaced from routine jobs. Using a language model, we establish a novel job-to-job task similarity measure. Exploiting the resulting job network to define job markets flexibly, we find that only the most similar jobs affect job finding. Since automation-exposed jobs overlap with other highly exposed jobs, task-based reallocation provides little relief for affected job seekers. We show that this is not true for more recent technological shocks, such as Artificial Intelligence, for which exposure is positively associated with job finding rates.
+                    </p>
+                    <div class="paper-link">
+                        <a href="https://doi.org/10.1016/j.labeco.2025.102766" target="_blank">Published Version</a>
+                    </div>
+                </div>
+                
+                <div class="paper">
+                    <h3 class="paper-title">Fissured Firms and Worker Outcomes</h3>
+                    <div class="paper-meta">
+                        Joint with <a href="https://sites.google.com/site/gmatiascortes/home" target="_blank">Matias Cortes</a>, <a href="https://sites.google.com/view/anamfoliveira" target="_blank">Ana Oliveira</a>, and <a href="https://www.uu.nl/staff/AMSalomons" target="_blank">Anna Salomons</a>
+                        <span class="paper-status">Submitted</span>
+                    </div>
+                    <p class="paper-abstract">
+                        We consider how firms' organization of production relates to workers' wages. Using matched employer-employee data from Portugal, we document that firms differ starkly in their occupational employment concentration, even within detailed industries, with some firms employing workers across a broad range of occupations and others being much more specialized. These differences are robustly predictive of wages: a worker employed in a specialized, i.e. 'fissured' firm, earns less than that same worker employed in a less specialized firm. This wage penalty for working in a fissured firm is observed across occupations of all skill levels. Firm specialization helps account for the role of firms in inequality, as specialization is strongly negatively related to estimated AKM firm fixed effects. Around two-thirds of the wage penalty from fissuring is explained by differences in firm productivity. Fissured firms also engage in lower rates of rent-sharing conditional on productivity, accounting for around one-quarter of the difference in wage premia between high- and low-specialization firms. Finally, we show that being employed in a specialized firm is also associated with worse longer-term career outcomes for workers.
+                    </p>
+                </div>
+                
+                <div class="paper">
+                    <h3 class="paper-title">Automatically Classifying Job Titles into Occupations Using FastText and Socio-demographic Information</h3>
+                    <div class="paper-meta">
+                        Research Master Thesis
+                    </div>
+                    <p class="paper-abstract">
+                        I test the effectiveness of FastText, a word embedding algorithm that considers sub-word structure, to classify millions of unique job title write-ins into a standardized list of Census occupations. This is a novel approach compared to the dictionary approaches, which take every word as an object, that have been used in the literature so far. Furthermore, I study the incorporation of worker characteristics to enhance the classification results. To do so, I develop a deep learning classification algorithm that combines pretrained word embeddings with other numerical variables. I find that in its best configuration FastText achieves a macro F1 score of 0.73, while the deep learning classification algorithm that uses individual characteristics improves this score to 0.85 when classifying into 222 detailed occupations. This points to the potential for adding extra information for text classification in general and specially for short text. The deep learning algorithm presented in this paper is flexible enough to be applied to a wide range of contexts.
+                    </p>
+                </div>
+            </section>
+            
+            <!-- Teaching Section -->
+            <section id="teaching">
+                <h2>Teaching</h2>
+                <div class="teaching-narrative">
+                    <p>
+                        I have extensive teaching experience across institutions in the Netherlands and Chile, spanning both graduate and undergraduate levels. At Utrecht University, I have served as Teaching Assistant for Econometrics and Labor Economics. At the Tinbergen Institute, I taught graduate courses in Natural Language Processing and Asymptotic Theory.
+                    </p>
+                    <p>
+                        My teaching spans a broad range of subjects in economics and quantitative methods. At VU Amsterdam and Amsterdam University College, I assisted with Macroeconomics, Monetary Economics, and Econometrics courses. Earlier in my career, at Universidad de Chile, I was the primary lecturer for Advanced Mathematical Methods at the undergraduate level, and assisted with graduate courses in Quantitative Methods and Macroeconomics. I also have experience teaching foundational courses including Calculus, Algebra, and Introduction to Economics at Pontificia Universidad Catolica de Chile.
+                    </p>
+                    <div class="teaching-highlight">
+                        <strong>Teaching Evaluations:</strong> 4.61/5 (Tinbergen Institute, Asymptotic Theory) | 5.7/7 (Universidad de Chile, Advanced Mathematical Methods)
+                    </div>
+                </div>
+            </section>
+            
+            <!-- CV Section -->
+            <section id="cv">
+                <h2>CV</h2>
+                <div class="cv-section">
+                    <div class="cv-education">
+                        <div class="cv-education-item">
+                            <strong>PhD in Economics</strong>, Utrecht University <span class="year">(expected 2025)</span>
+                        </div>
+                        <div class="cv-education-item">
+                            <strong>Research Master Business Data Science</strong>, Tinbergen Institute <span class="year">(2019-2021)</span>
+                        </div>
+                        <div class="cv-education-item">
+                            <strong>M2 Economic Theory and Econometrics</strong>, Toulouse School of Economics <span class="year">(2017-2018)</span>
+                        </div>
+                        <div class="cv-education-item">
+                            <strong>M.Sc. Economics</strong>, Universidad de Chile <span class="year">(2015-2017)</span>
+                        </div>
+                        <div class="cv-education-item">
+                            <strong>B.Sc. Mathematics & B.Sc. Social Sciences</strong>, Pontificia Universidad Catolica de Chile
+                        </div>
+                    </div>
+                    <a href="files/academic_cv_diego_dabed.pdf" class="btn" target="_blank">Download Full CV</a>
+                </div>
+            </section>
+        </main>
     </div>
+    
+    <footer>
+        <div class="container">
+            Diego Dabed | Utrecht University | Last updated: December 2025
+        </div>
+    </footer>
 </body>
 </html>
